@@ -5,6 +5,7 @@ CSV datasets for the VAXT Heritage Grain Knowledge Base.
 **License**: CC BY 4.0 — Attribution required.
 **Attribution**: VAXT Foundation
 **Contact**: malcolm@vav-os.com
+**Knowledge Base**: [opensauce-kb.notion.site/vaxt](https://opensauce-kb.notion.site/vaxt)
 
 ---
 

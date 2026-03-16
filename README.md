@@ -4,6 +4,8 @@ Open heritage grain datasets for researchers, growers, and breeders.
 
 **18 curated CSVs** · **280+ varieties** · **140+ genomic markers** · **83 breeding programs** · **39 field trial sites**
 
+This repository contains the structured data layer of the VAXT project. For narrative documentation — variety profiles, methodology, field guides, and breeder notes — see the **[VAXT Knowledge Base](https://opensauce-kb.notion.site/vaxt)**.
+
 ---
 
 ## Quick Start
@@ -95,5 +97,6 @@ See [CONTRIBUTING.md](CONTRIBUTING.md). We welcome data corrections, new variety
 
 ## Links
 
+- Knowledge Base: [opensauce-kb.notion.site/vaxt](https://opensauce-kb.notion.site/vaxt)
 - Website: [vaxt.bio](https://vaxt.bio)
 - Contact: malcolm@vav-os.com
