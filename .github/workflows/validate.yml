@@ -1,0 +1,53 @@
+name: Validate Datasets
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run validators
+        run: |
+          cd scripts
+          for f in validate_*.py; do
+            echo "==> $f"
+            python3 "$f" || exit 1
+          done
+
+      - name: Verify sources.toml paths exist
+        run: |
+          python3 -c "
+          import tomllib
+          from pathlib import Path
+
+          with open('sources.toml', 'rb') as f:
+              manifest = tomllib.load(f)
+
+          errors = []
+          for key, src in manifest.get('source', {}).items():
+              if src.get('type') != 'static':
+                  continue
+              path = Path(src['path'])
+              if not path.exists():
+                  errors.append(f'{key}: {path} not found')
+
+          if errors:
+              for e in errors:
+                  print(f'FAIL: {e}')
+              raise SystemExit(1)
+          else:
+              print(f'OK: all static source paths exist')
+          "

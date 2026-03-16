@@ -1,0 +1,7 @@
+.env
+*.duckdb
+*.duckdb.wal
+.venv/
+__pycache__/
+output/*
+!output/.gitkeep
